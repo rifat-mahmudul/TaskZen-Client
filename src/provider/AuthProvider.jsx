@@ -6,7 +6,7 @@ export const AuthContext = createContext();
 const AuthProvider = ({children}) => {
     
     const authInfo = {
-
+        
     }
 
     return (
