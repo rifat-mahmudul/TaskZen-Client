@@ -1,5 +1,5 @@
 
-const BuyerLogIn = () => {
+const SignIn = () => {
     return (
         <div>
             <h1>This is buyer log in page</h1>
@@ -7,4 +7,4 @@ const BuyerLogIn = () => {
     )
 }
 
-export default BuyerLogIn
+export default SignIn
