@@ -13,7 +13,7 @@ import Marquee from "react-fast-marquee";
 
 const Banner = () => {
     return (
-        <section className="bg-gradient-to-t from-emerald-400 via-emerald-100 to-emerald-50 py-10 sm:py-20 min-h-[calc(100vh-69.33px)] flex flex-col items-center justify-center">
+        <section className="bg-gradient-to-t from-emerald-400 via-emerald-100 to-emerald-50 py-10 sm:py-16 min-h-[calc(100vh-69.33px)] flex flex-col items-center justify-center">
         
             <div className="max-w-[90%] xl:max-w-[1200px] mx-auto text-center sm:flex items-center justify-between sm:gap-5 lg:gap-0 border-b-2 border-white pb-16">
 

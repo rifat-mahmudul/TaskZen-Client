@@ -15,9 +15,9 @@ const Navbar = () => {
     </>
 
     return (
-        <header>
+        <header className='sticky top-0 backdrop-blur-lg z-50 bg-emerald-50'>
             
-            <div className='max-w-[90%] xl:max-w-[1200px] mx-auto flex justify-between items-center py-3 sticky top-0 backdrop-blur-lg z-50 bg-emerald-50'>
+            <div className='max-w-[90%] xl:max-w-[1200px] mx-auto flex justify-between items-center py-3'>
 
                 <NavLink to='/'>
                     <div>
@@ -54,7 +54,7 @@ const Navbar = () => {
                 </div>
 
                 { open && 
-                    <div className='lg:hidden absolute top-14 right-0 bg-white shadow-lg p-4 rounded-lg w-3/4 bg-gradient-to-t from-emerald-500 via-white to-white ease-in-out duration-1000'>
+                    <div className='lg:hidden absolute top-14 right-2 bg-white shadow-lg p-4 rounded-lg w-3/4 bg-gradient-to-t from-emerald-500 via-white to-white ease-in-out duration-1000'>
                         <div>
                             <nav>
                                 <ul className='flex flex-col text-center space-y-4 font-semibold text-gray-600'>
