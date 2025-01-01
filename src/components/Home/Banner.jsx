@@ -18,7 +18,7 @@ const Banner = () => {
             <div className="max-w-[90%] xl:max-w-[1200px] mx-auto text-center sm:flex items-center justify-between sm:gap-5 lg:gap-0 border-b-2 border-white pb-16">
 
                 <div>
-                    <img className='mx-auto sm:mx-0 mb-5 sm:mb-0 h-40 sm:h-full' src={img1} alt="" />
+                    <img className='mx-auto sm:mx-0 mb-5 sm:mb-0 h-40 sm:h-full animate-pulse' src={img1} alt="" />
                 </div>
 
                 <div>
