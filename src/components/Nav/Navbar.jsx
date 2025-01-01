@@ -17,7 +17,7 @@ const Navbar = () => {
     return (
         <header>
             
-            <div className='max-w-[90%] xl:max-w-[1200px] mx-auto flex justify-between items-center py-3 sticky top-0 backdrop-blur-lg z-50'>
+            <div className='max-w-[90%] xl:max-w-[1200px] mx-auto flex justify-between items-center py-3 sticky top-0 backdrop-blur-lg z-50 bg-emerald-50'>
 
                 <NavLink to='/'>
                     <div>
