@@ -4,9 +4,9 @@ import { NavLink, Outlet } from 'react-router';
 
 const SignUp = () => {
     return (
-        <section className="min-h-screen flex items-center justify-center bg-gradient-to-tr from-emerald-500 via-emerald-100 to-emerald-50">    
+        <section className="min-h-screen flex items-center justify-center bg-gradient-to-tr from-emerald-500 via-emerald-100 to-emerald-50 py-16">    
 
-                <div className='w-[90%] lg:w-[45%] bg-emerald-300 p-2 sm:p-10 rounded-lg shadow-lg'>
+                <div className='w-[90%] lg:w-[45%] bg-emerald-500 p-2 sm:p-10 rounded-lg shadow-lg'>
                     <h1 className='text-center font-extrabold text-3xl mb-5 text-white'>Sign Up</h1>
 
                     <div className='flex justify-between items-center border border-gray-400 rounded-full bg-emerald-200'>
@@ -33,7 +33,9 @@ const SignUp = () => {
 
                     </div>
 
-                    <Outlet></Outlet>
+                    <div className='mt-3'>
+                        <Outlet></Outlet>
+                    </div>
                 </div>
 
         </section>
