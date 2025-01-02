@@ -16,7 +16,7 @@ const ApplicantSignUp = () => {
                     />
                 </div>
 
-                {/* name */}
+                {/* Photo */}
                 <div className="mt-4">
                     <h1 className="font-semibold text-xl text-white mb-2">Upload Photo</h1>
                     <input 

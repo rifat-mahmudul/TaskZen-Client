@@ -17,7 +17,7 @@ const SignUp = () => {
                         >
                             <div>
                                 <img className='h-20 sm:h-40 w-full' src={img1} alt="" />
-                                <h1 className='text-center font-semibold mt-4 text-xl text-white'>Applicant</h1>
+                                <h1 className='text-center font-semibold mt-4 text-xl text-gray-700'>Applicant</h1>
                             </div>
                         </NavLink>
 
@@ -27,7 +27,7 @@ const SignUp = () => {
                         >
                             <div>
                                 <img className='h-20 sm:h-40 w-full' src={img2} alt="" />
-                                <h1 className='text-center font-semibold mt-4 text-xl text-white'>Employer</h1>
+                                <h1 className='text-center font-semibold mt-4 text-xl text-gray-700'>Employer</h1>
                             </div>
                         </NavLink>
 
