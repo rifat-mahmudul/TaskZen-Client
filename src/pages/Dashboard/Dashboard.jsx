@@ -4,8 +4,8 @@ import DashNav from "../../components/Dashboard/DashNav"
 const Dashboard = () => {
     return (
         <section>
-            <div className="flex flex-col lg:flex-row">
-                <div className="lg:w-[15%]">
+            <div className="flex flex-col lg:flex-row lg:gap-3">
+                <div className="lg:w-[18%]">
                     <DashNav></DashNav>
                 </div>
 

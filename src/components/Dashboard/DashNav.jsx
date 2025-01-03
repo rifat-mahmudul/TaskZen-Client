@@ -63,7 +63,7 @@ const DashNav = () => {
                     <div className='lg:hidden absolute top-16 right-0 min-h-screen shadow-lg p-4 rounded-lg w-[60%] sm:w-[30%] bg-emerald-500 ease-in-out duration-1000 text-white'>
                         <div>
                             <nav>
-                                <ul className='flex flex-col text-center space-y-4 font-semibold text-gray-600'>
+                                <ul className='flex flex-col text-center space-y-4 font-semibold'>
                                     {navItems}
                                 </ul>
                             </nav>
