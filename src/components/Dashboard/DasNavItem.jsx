@@ -6,7 +6,7 @@ const DasNavItem = ({address, navName, setIsOpen, icon}) => {
         <div>
             <NavLink
             onClick={() => setIsOpen(false)}
-            className={({isActive}) => (isActive ? 'font-bold flex items-center space-x-1 text-pink-700' : 'font-bold flex items-center space-x-1')} 
+            className={({isActive}) => (isActive ? 'font-bold flex items-center space-x-1 p-2 bg-[#80808093] rounded-lg' : 'font-bold flex items-center space-x-1 text-center p-2 rounded-lg')} 
             to={address}
             >
                 <h1>{icon}</h1>
