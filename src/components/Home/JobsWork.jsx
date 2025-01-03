@@ -11,12 +11,12 @@ const JobsWork = () => {
 
             <div>
                 <div>
-                    <Title title={'How Expert Jobs Work'} desc={'Get your job done in 3 easy steps'}></Title>
+                    <Title title={'How Expert Jobs Work'} desc={'Get your job done in 4 easy steps'}></Title>
                 </div>
             </div>
 
             <div>
-                <div className="grid grid-cols-1 gap-8 sm:grid-cols-4 sm:gap-8 mt-10">
+                <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 sm:gap-8 mt-10">
                     
                     <StepCard 
                     icon={<FaRegUser></FaRegUser>}

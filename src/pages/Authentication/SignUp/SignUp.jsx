@@ -7,6 +7,13 @@ const SignUp = () => {
         <section className="min-h-screen flex items-center justify-center bg-gradient-to-tr from-emerald-500 via-emerald-100 to-emerald-50 py-16">    
 
                 <div className='w-[90%] lg:w-[45%] bg-emerald-500 p-2 sm:p-10 rounded-lg shadow-lg'>
+
+                    <NavLink to='/'>
+                        <div className="text-center mb-4">
+                            <h1 className='text-5xl text-white font-Rancho font-bold'>Job<span className='text-gray-700'>ify</span></h1>
+                        </div>
+                    </NavLink>
+
                     <h1 className='text-center font-extrabold text-3xl mb-5 text-white'>Sign Up</h1>
 
                     <div className='flex justify-between items-center border border-gray-400 rounded-full bg-emerald-200'>
