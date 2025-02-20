@@ -13,7 +13,7 @@ const Banner = () => {
                 </div>
 
                 <div>
-                    <h1 className='text-5xl text-gray-700 lg:w-[80%] mx-auto uppercase font-extrabold mb-4'>Manage Tasks Effortlessly, Stay Ahead Always</h1>
+                    <h1 className='sm:text-5xl text-3xl text-gray-700 lg:w-[80%] mx-auto uppercase font-extrabold mb-4'>Manage Tasks Effortlessly, Stay Ahead Always</h1>
                     <p className='lg:w-[85%] mx-auto text-gray-500'>Boost your productivity with TaskHive, the smart task manager that helps you prioritize, track, and complete your tasks efficiently. Stay organized, stay focused, and achieve your goals effortlessly.</p>
                     <Link to='/dashboard'>
                         <button className='py-3 px-10 bg-gradient-to-tl from-emerald-600 via-emerald-500 to-gray-300 hover:from-gray-300 hover:via-emerald-500 hover:to-emerald-600 mt-5 text-white text-xl font-extrabold rounded-lg transition'>Get Started</button>
