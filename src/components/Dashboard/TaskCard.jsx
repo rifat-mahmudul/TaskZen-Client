@@ -1,16 +1,22 @@
+/* eslint-disable react/prop-types */
 import { MdDelete } from "react-icons/md";
 import { FaPencilAlt } from "react-icons/fa";
 
-const TaskCard = () => {
+const TaskCard = ({task}) => {
+
+    if(!task) return null;
+
+    const {title, category, description} = task;
+
   return (
     <div className="border border-black p-3 rounded-lg shadow-lg bg-gray-400 cursor-pointer">
-      <h1 className="font-bold text-xl">This is Title</h1>
+      <h1 className="font-bold text-xl">{title}</h1>
 
-      <p className="mt-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste eius sapiente maxime porro dolorum quis sint? Saepe repellendus aliquam quos.</p>
+      <p className="mt-2">{description}</p>
 
       <div className="flex justify-between items-center mt-3">
         <div>
-            <button className="bg-green-500 py-1 px-5 rounded-3xl font-semibold text-white">Done</button>
+            <button className="bg-green-500 py-1 px-5 rounded-3xl font-semibold text-white">{category}</button>
         </div>
 
         <div className="flex gap-2 items-center">
