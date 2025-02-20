@@ -44,7 +44,7 @@ const DashNav = () => {
                         </div>
                     </NavLink>
 
-                    <div className="mt-5 lg:text-xl pl-5 hidden lg:block">
+                    <div className="mt-5 lg:text-xl px-5 hidden lg:block">
                         {navItems}
                     </div>
 
