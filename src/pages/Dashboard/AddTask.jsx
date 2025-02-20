@@ -7,12 +7,14 @@ import { ImSpinner9 } from "react-icons/im";
 import { useNavigate } from "react-router";
 import HelmetTitle from "../../components/shared/HelmetTitle";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import useAuth from "../../hooks/useAuth";
 
 const AddTask = () => {
 
   const [loading, setLoading] = useState();
   const axiosPublic = useAxiosPublic();
   const navigate = useNavigate();
+  const {user} = useAuth();
 
   const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -26,6 +28,8 @@ const AddTask = () => {
 
   const onSubmit = async data => {
     setLoading(true);
+    data.userEmail = user?.email;
+
     try {
       await mutateAsync(data);
       toast.success('Task Added Successfully!');
@@ -59,12 +63,16 @@ const AddTask = () => {
               {
                 ...register('title', {
                   required : "Title is Required",
+                    maxLength : {
+                        value : 50,
+                        message : "Title maximum 50 characters"
+                    }
                 })
               }
               />
               {
-                errors.coursePrice &&
-                <p className='text-xs mt-2 text-red-500'>{errors.coursePrice.message}</p>
+                errors.title &&
+                <p className='text-xs mt-2 text-red-500'>{errors.title.message}</p>
               }
           </div>
 
@@ -100,6 +108,10 @@ const AddTask = () => {
             {
               ...register('description', {
                 required : "Description is Required",
+                maxLength : {
+                    value : 200,
+                    message : "Description maximum 50 characters"
+                }
               })
             }
             ></textarea>
