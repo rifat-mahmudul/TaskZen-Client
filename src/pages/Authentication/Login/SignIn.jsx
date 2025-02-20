@@ -13,8 +13,8 @@ const SignIn = () => {
     const handleGoogleSignIn = async () => {
         try {
             await googleSignIn();
-            toast.success("Log in successfull!");
-            navigate(from);
+            await navigate(from);
+            toast.success("Log in successful!");
         } catch (error) {
             console.log(error);
         }

@@ -3,6 +3,8 @@ import Root from "../Layout/Root";
 import Home from "../pages/Home";
 import Error from "../pages/Error";
 import SignIn from "../pages/Authentication/Login/SignIn";
+import Dashboard from "../pages/Dashboard/Dashboard";
+import PrivateRoute from "./PrivateRoute";
 
 const AppRoutes = () => {
     return (
@@ -13,6 +15,8 @@ const AppRoutes = () => {
             </Route>
 
             <Route path="/signIn" element={<SignIn></SignIn>}></Route>
+
+            <Route path="/dashboard" element={<PrivateRoute><Dashboard></Dashboard></PrivateRoute>}></Route>
 
             <Route path="*" element={<Error></Error>}></Route>
         </Routes>
