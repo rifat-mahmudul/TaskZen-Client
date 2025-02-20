@@ -1,7 +1,7 @@
 
-import DashNav from "@/components/Dashboard/DashNav"
-import HelmetTitle from "@/components/share/HelmetTitle"
 import { Outlet } from "react-router"
+import HelmetTitle from "../../components/shared/HelmetTitle"
+import DashNav from "../../components/Dashboard/DashNav"
 
 const Dashboard = () => {
   return (
@@ -11,7 +11,7 @@ const Dashboard = () => {
 
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-10">
 
-            <div className="lg:w-[22%] lg:h-screen bg-[#0000ff1a] px-4 lg:py-10 py-2 sticky top-0 z-50 backdrop-blur-lg lg:overflow-auto scrollbar-thin scrollbar-track-blue-300 scrollbar-thumb-blue-800">
+            <div className="lg:w-[22%] lg:h-screen py-2 lg:py-0 sticky top-0 z-50 backdrop-blur-lg lg:overflow-auto">
                 <DashNav></DashNav>
             </div>
 

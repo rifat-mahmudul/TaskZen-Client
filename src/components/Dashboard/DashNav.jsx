@@ -1,7 +1,7 @@
 import { NavLink } from "react-router"
 import DasNavItem from "./DasNavItem"
-import { FaHome } from "react-icons/fa";
-import { FaUsers } from "react-icons/fa";
+import { MdFormatListBulletedAdd } from "react-icons/md";
+import { FaTasks } from "react-icons/fa";
 import { RiMenu3Fill } from "react-icons/ri";
 import { RxCross2 } from "react-icons/rx";
 import { useState } from "react";
@@ -14,18 +14,18 @@ const DashNav = () => {
         <div>
             <DasNavItem 
             setIsOpen={setIsOpen}
-            address={'/dashboard/dash-home'} 
-            navName={'HOME'} 
-            icon={<FaHome></FaHome>}
+            address={'/dashboard/add-task'} 
+            navName={'Add Task'} 
+            icon={<MdFormatListBulletedAdd></MdFormatListBulletedAdd>}
             ></DasNavItem>
         </div>
 
         <div className="mt-1">
             <DasNavItem 
             setIsOpen={setIsOpen}
-            address={'all-user'} 
-            navName={'ALL USER'} 
-            icon={<FaUsers></FaUsers>}
+            address={'/dashboard/my-tasks'} 
+            navName={'My Tasks'} 
+            icon={<FaTasks></FaTasks>}
             >
             </DasNavItem>
         </div>
@@ -35,16 +35,16 @@ const DashNav = () => {
 
 
     return (
-        <section className="lg:min-h-screen bg-emerald-500 text-white lg:px-5 lg:py-10 text-start">
+        <section className="lg:min-h-screen bg-emerald-500 text-white lg:py-10 text-start">
 
                 <div className="w-[90%] lg:w-full mx-auto flex items-center justify-between lg:block py-4 lg:py-0">
                     <NavLink to='/'>
                         <div className="text-center">
-                            <h1 className='text-4xl font-Rancho font-bold'>Job<span className='text-gray-700'>ify</span></h1>
+                            <h1 className='text-4xl font-Rancho font-bold'>Task<span className='text-gray-700'>Zen</span></h1>
                         </div>
                     </NavLink>
 
-                    <div className="mt-5 lg:text-lg hidden lg:block">
+                    <div className="mt-5 lg:text-xl pl-5 hidden lg:block">
                         {navItems}
                     </div>
 
