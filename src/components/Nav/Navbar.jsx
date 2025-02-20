@@ -14,7 +14,7 @@ const Navbar = () => {
 
                 <NavLink to='/'>
                     <div>
-                        <h1 className='text-4xl font-Rancho font-bold'>Job<span className='text-emerald-500'>ify</span></h1>
+                        <h1 className='text-4xl font-Rancho font-bold'>Task<span className='text-emerald-500'>Zen</span></h1>
                     </div>
                 </NavLink>
 

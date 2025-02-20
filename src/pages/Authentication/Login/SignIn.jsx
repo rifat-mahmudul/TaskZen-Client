@@ -1,47 +1,25 @@
-import { NavLink, Outlet } from "react-router"
+import { NavLink } from "react-router"
 import img1 from '../../../assets/job-applicant.png';
 import img2 from '../../../assets/employers.png';
+import { FcGoogle } from "react-icons/fc";
 
 const SignIn = () => {
     return (
-        <section className="min-h-screen flex items-center justify-center bg-gradient-to-tr from-emerald-500 via-emerald-100 to-emerald-50 py-16">    
+        <section className="min-h-screen flex items-center justify-center bg-gradient-to-tr from-emerald-500 via-emerald-100 to-emerald-50">    
 
                 <div className='w-[90%] lg:w-[45%] bg-emerald-500 p-2 sm:p-10 rounded-lg shadow-lg'>
 
                     <NavLink to='/'>
                         <div className="text-center mb-4">
-                            <h1 className='text-5xl text-white font-Rancho font-bold'>Job<span className='text-gray-700'>ify</span></h1>
+                            <h1 className='text-5xl text-white font-Rancho font-bold'>Task<span className='text-gray-700'>Zen</span></h1>
                         </div>
                     </NavLink>
 
-                    <h1 className='text-center font-extrabold text-3xl mb-5 text-white'>Sign In</h1>
-
-                    <div className='flex justify-between items-center border border-gray-400 rounded-full bg-emerald-200'>
-
-                        <NavLink 
-                        to={'/signIn/applicant-signin'}
-                        className={({isActive}) => (isActive ? 'border w-1/2 border-emerald-600 p-8 bg-emerald-400 rounded-full' : ' hover:bg-emerald-400 p-8 rounded-full w-1/2')}
-                        >
-                            <div>
-                                <img className='h-20 sm:h-40 w-full' src={img1} alt="" />
-                                <h1 className='text-center font-semibold mt-4 text-xl text-gray-700'>Applicant</h1>
-                            </div>
-                        </NavLink>
-
-                        <NavLink 
-                        to={'employer-signIn'}
-                        className={({isActive}) => (isActive ? 'border w-1/2 border-emerald-600 p-8 bg-emerald-400 rounded-full' : ' hover:bg-emerald-400 p-8 rounded-full w-1/2')}
-                        >
-                            <div>
-                                <img className='h-20 sm:h-40 w-full' src={img2} alt="" />
-                                <h1 className='text-center font-semibold mt-4 text-xl text-gray-700'>Employer</h1>
-                            </div>
-                        </NavLink>
-
-                    </div>
-
                     <div className='mt-3'>
-                        <Outlet></Outlet>
+                        <button 
+                            className='border-2 border-white py-3 w-full mt-5 rounded-lg font-bold flex items-center justify-center space-x-2 disabled:cursor-not-allowed'>
+                            <FcGoogle className='text-3xl' /> <span className="text-white">Continue With Google</span>
+                        </button>
                     </div>
                 </div>
 
