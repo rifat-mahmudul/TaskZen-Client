@@ -5,6 +5,7 @@ import { BrowserRouter } from "react-router";
 import AppRoutes from './Routes/Routes';
 import AuthProvider from './provider/AuthProvider';
 import { HelmetProvider } from 'react-helmet-async';
+import { Toaster } from 'react-hot-toast';
 import {
   QueryClient,
   QueryClientProvider,
@@ -19,6 +20,7 @@ createRoot(document.getElementById('root')).render(
         <AuthProvider>
           <BrowserRouter>
             <AppRoutes></AppRoutes>
+            <Toaster />
           </BrowserRouter>
         </AuthProvider>
       </HelmetProvider>

@@ -1,9 +1,25 @@
-import { NavLink } from "react-router"
-import img1 from '../../../assets/job-applicant.png';
-import img2 from '../../../assets/employers.png';
+import { NavLink, useLocation, useNavigate } from "react-router"
 import { FcGoogle } from "react-icons/fc";
+import useAuth from "../../../hooks/useAuth";
+import toast from 'react-hot-toast';
 
 const SignIn = () => {
+
+    const {googleSignIn} = useAuth();
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state || '/';
+
+    const handleGoogleSignIn = async () => {
+        try {
+            await googleSignIn();
+            toast.success("Log in successfull!");
+            navigate(from);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     return (
         <section className="min-h-screen flex items-center justify-center bg-gradient-to-tr from-emerald-500 via-emerald-100 to-emerald-50">    
 
@@ -17,6 +33,7 @@ const SignIn = () => {
 
                     <div className='mt-3'>
                         <button 
+                            onClick={handleGoogleSignIn}
                             className='border-2 border-white py-3 w-full mt-5 rounded-lg font-bold flex items-center justify-center space-x-2 disabled:cursor-not-allowed'>
                             <FcGoogle className='text-3xl' /> <span className="text-white">Continue With Google</span>
                         </button>
