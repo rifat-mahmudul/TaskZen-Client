@@ -24,6 +24,14 @@ const MyTasks = () => {
     }
   })
 
+  const {data : doneTask = []} = useQuery({
+    queryKey : ['done-tasks', user?.email],
+    queryFn : async () => {
+      const {data} = await axiosPublic(`/add-task/getDoneTask/${user?.email}`);
+      return data;
+    }
+  })
+
 
   return (
     <section>
@@ -67,7 +75,16 @@ const MyTasks = () => {
           className="bg-gray-300 p-4 rounded-lg min-h-screen"
           >
             <h1 className="text-center font-bold text-2xl mb-3">Done</h1>
-            <TaskCard></TaskCard>
+              <div className="flex flex-col gap-5">
+                  {
+                    doneTask.map(task => (
+                      <TaskCard 
+                      key={task._id}
+                      task={task}
+                      ></TaskCard>
+                    ))
+                  }
+              </div>
           </div>
 
         </div>
