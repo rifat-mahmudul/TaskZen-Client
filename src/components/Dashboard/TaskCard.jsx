@@ -41,7 +41,7 @@ const TaskCard = ({task}) => {
       <div className="flex justify-between items-center mt-3">
         <div>
             <button 
-            className={`bg-green-500 py-1 px-5 rounded-3xl font-semibold text-white ${category === 'To-Do' ? 'bg-green-500' : category === 'In Progress' ? 'bg-orange-500' : 'bg-blue-500'}`}
+            className={`py-1 px-5 rounded-3xl font-semibold text-white ${category === 'To-Do' ? 'bg-green-500' : category === 'In Progress' ? 'bg-orange-500' : 'bg-blue-500'}`}
             >
               {category}
             </button>

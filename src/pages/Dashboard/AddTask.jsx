@@ -11,7 +11,7 @@ import useAuth from "../../hooks/useAuth";
 
 const AddTask = () => {
 
-  const [loading, setLoading] = useState();
+  const [loading, setLoading] = useState(false);
   const axiosPublic = useAxiosPublic();
   const navigate = useNavigate();
   const {user} = useAuth();

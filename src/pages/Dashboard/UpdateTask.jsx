@@ -1,7 +1,6 @@
 
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { useState } from "react"
-import { useForm } from "react-hook-form";
+import { useEffect, useState } from "react"
 import toast from "react-hot-toast";
 import { ImSpinner9 } from "react-icons/im";
 import { useNavigate, useParams } from "react-router";
@@ -11,13 +10,14 @@ import useAuth from "../../hooks/useAuth";
 
 const UpdateTask = () => {
 
-  const [loading, setLoading] = useState();
+  const [loading, setLoading] = useState(false);
   const axiosPublic = useAxiosPublic();
   const navigate = useNavigate();
   const {user} = useAuth();
   const {id} = useParams();
 
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const [singleTaskData, setSingleTaskData] = useState({});
+  const [updateCategory, setUpdateCategory] = useState('');
   
   const {data : task = {}} = useQuery({
     queryKey : ['single-task'],
@@ -27,28 +27,39 @@ const UpdateTask = () => {
     }
   })
 
-  console.log(id)
+  useEffect(() => {
+    if (task) {
+      setSingleTaskData(task);
+      setUpdateCategory(task?.category || "");
+    }
+  }, [task]);
 
-  console.log(task)
+  const {title, description} = singleTaskData;
 
   const {mutateAsync} = useMutation({
     mutationKey : ['add-task'],
     mutationFn : async(taskData) => {
-      const {data} = await axiosPublic.post('/add-task', taskData);
+      const {data} = await axiosPublic.patch(`add-task/updateSingleTask/${id}`, taskData);
       return data;
     }
   })
 
-  const onSubmit = async data => {
+  const handleSubmit = async e => {
     setLoading(true);
+    e.preventDefault();
+    const form = e.target;
+    const title = form.title.value;
+    const category = updateCategory;
+    const description = form.description.value;
+    const data = {title, category, description};
     data.userEmail = user?.email;
 
     try {
       await mutateAsync(data);
-      toast.success('Task Added Successfully!');
+      toast.success('Task Updated Successfully!');
       navigate('/dashboard/my-tasks');
     } catch (error) {
-      console.log(`error from post task : ${error}`);
+      console.log(`error from Updated task : ${error}`);
       toast.error('An error occurred! Please try again.')
     }finally{
       setLoading(false);
@@ -58,9 +69,9 @@ const UpdateTask = () => {
   return (
     <section>
 
-      <HelmetTitle title="Add Task"></HelmetTitle>
+      <HelmetTitle title="Update Task"></HelmetTitle>
 
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit}>
 
         {/* course price and discount */}
         <div className="flex flex-col gap-6 lg:gap-0 sm:flex-row items-center justify-between mt-5">
@@ -73,20 +84,9 @@ const UpdateTask = () => {
               type="text" 
               className="w-full p-3 bg-inherit border border-emerald-500 outline-0 focus:border-2 rounded-lg"
               placeholder="Enter task title" 
-              {
-                ...register('title', {
-                  required : "Title is Required",
-                    maxLength : {
-                        value : 50,
-                        message : "Title maximum 50 characters"
-                    }
-                })
-              }
+              name="title"
+              defaultValue={title}
               />
-              {
-                errors.title &&
-                <p className='text-xs mt-2 text-red-500'>{errors.title.message}</p>
-              }
           </div>
 
           {/* discount */}
@@ -95,18 +95,15 @@ const UpdateTask = () => {
 
             <select
             className="w-full p-3 bg-inherit border border-emerald-500 outline-0 focus:border-2 rounded-lg"
-            {...register("category", { required: "Category is Required" })}
+            name="category"
+            value={updateCategory}
+            onChange={(e) => setUpdateCategory(e.target.value)}
             >
                 <option value="">Select Category</option>
                 <option value="To-Do">To-Do</option>
                 <option value="In Progress">In Progress</option>
                 <option value="Done">Done</option>
             </select>
-
-            {
-            errors.category &&
-            <p className='text-xs mt-2 text-red-500'>{errors.category.message}</p>
-            }
           </div>
           
         </div>
@@ -118,20 +115,9 @@ const UpdateTask = () => {
             <textarea
             className="w-full p-3 border border-emerald-500 outline-0 focus:border-2 rounded-lg h-40 bg-[#00ffb72d]"
             placeholder="Write Details About The Task..."
-            {
-              ...register('description', {
-                required : "Description is Required",
-                maxLength : {
-                    value : 200,
-                    message : "Description maximum 50 characters"
-                }
-              })
-            }
+            name="description"
+            defaultValue={description}
             ></textarea>
-            {
-              errors.description &&
-              <p className='text-xs mt-2 text-red-500'>{errors.description.message}</p>
-            }
         </div>
 
         <button 
