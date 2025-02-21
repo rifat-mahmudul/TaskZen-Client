@@ -4,6 +4,7 @@ import { FaPencilAlt } from "react-icons/fa";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import toast from 'react-hot-toast'
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { Link } from "react-router";
 
 const TaskCard = ({task}) => {
 
@@ -50,7 +51,10 @@ const TaskCard = ({task}) => {
             <button 
             onClick={handleDelete}
             className="bg-gray-500 rounded-full p-2 text-xl text-red-800"><MdDelete /></button>
-            <button className="bg-gray-500 rounded-full p-2 text-xl text-blue-800"><FaPencilAlt /></button>
+
+            <Link to={`/dashboard/update-task/${_id}`}>
+              <button className="bg-gray-500 rounded-full p-2 text-xl text-blue-800"><FaPencilAlt /></button>
+            </Link>
         </div>
       </div>
     </div>

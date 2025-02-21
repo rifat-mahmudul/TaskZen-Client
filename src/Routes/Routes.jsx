@@ -7,6 +7,7 @@ import Dashboard from "../pages/Dashboard/Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import AddTask from "../pages/Dashboard/AddTask";
 import MyTasks from "../pages/Dashboard/MyTasks";
+import UpdateTask from "../pages/Dashboard/UpdateTask";
 
 const AppRoutes = () => {
     return (
@@ -26,6 +27,8 @@ const AppRoutes = () => {
                 />
 
                 <Route path="/dashboard/add-task" element={<PrivateRoute><AddTask></AddTask></PrivateRoute>}></Route>
+
+                <Route path="/dashboard/update-task/:id" element={<PrivateRoute><UpdateTask></UpdateTask></PrivateRoute>}></Route>
 
                 <Route path="/dashboard/my-tasks" element={<PrivateRoute><MyTasks></MyTasks></PrivateRoute>}></Route>
             

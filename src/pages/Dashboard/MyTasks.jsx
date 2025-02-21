@@ -4,6 +4,7 @@ import useAxiosPublic from "../../hooks/useAxiosPublic";
 import useAuth from "../../hooks/useAuth";
 import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd"; // Updated import
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import HelmetTitle from "../../components/shared/HelmetTitle";
 
 const MyTasks = () => {
   const axiosPublic = useAxiosPublic();
@@ -65,6 +66,9 @@ const MyTasks = () => {
 
   return (
     <section>
+
+      <HelmetTitle title={'My Tasks'}></HelmetTitle>
+
       <DragDropContext onDragEnd={handleDragEnd}>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
 
