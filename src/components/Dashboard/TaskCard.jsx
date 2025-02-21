@@ -1,12 +1,35 @@
 /* eslint-disable react/prop-types */
 import { MdDelete } from "react-icons/md";
 import { FaPencilAlt } from "react-icons/fa";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+import toast from 'react-hot-toast'
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const TaskCard = ({task}) => {
 
-    if(!task) return null;
 
-    const {title, category, description} = task;
+    const axiosPublic = useAxiosPublic();
+    const queryClient = useQueryClient();
+
+    const {title, category, description, _id} = task;
+
+    const {mutateAsync} = useMutation({
+      mutationFn: async () => {
+        await axiosPublic.delete(`/add-task/deleteTask/${_id}`);
+      },
+      onSuccess : () => {
+        queryClient.invalidateQueries(["todo-tasks"]);
+        queryClient.invalidateQueries(["in-progress-tasks"]);
+        queryClient.invalidateQueries(["done-tasks"]);
+      }
+    })
+
+    const handleDelete = async () => {
+      await mutateAsync();
+      toast.success('Task Deleted Successfully');
+    }
+
+    if(!task) return null;
 
   return (
     <div className="border border-black p-3 rounded-lg shadow-lg bg-gray-400 cursor-pointer">
@@ -24,7 +47,9 @@ const TaskCard = ({task}) => {
         </div>
 
         <div className="flex gap-2 items-center">
-            <button className="bg-gray-500 rounded-full p-2 text-xl text-red-800"><MdDelete /></button>
+            <button 
+            onClick={handleDelete}
+            className="bg-gray-500 rounded-full p-2 text-xl text-red-800"><MdDelete /></button>
             <button className="bg-gray-500 rounded-full p-2 text-xl text-blue-800"><FaPencilAlt /></button>
         </div>
       </div>
