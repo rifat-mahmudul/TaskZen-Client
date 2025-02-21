@@ -99,15 +99,6 @@ npm run dev
 
 ---
 
-## 📸 Screenshots
-### 🔹 **Light Mode**
-![Light Mode](https://via.placeholder.com/800x400)
-
-### 🔹 **Dark Mode**
-![Dark Mode](https://via.placeholder.com/800x400)
-
----
-
 ## 📜 License
 This project is licensed under the **MIT License**. Feel free to use, modify, and distribute it!
 
