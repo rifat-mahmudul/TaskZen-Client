@@ -12,7 +12,7 @@ const TaskCard = ({task}) => {
     const axiosPublic = useAxiosPublic();
     const queryClient = useQueryClient();
 
-    const {title, category, description, _id} = task;
+    const {title, category, description, timeStamp, _id} = task;
 
     const {mutateAsync} = useMutation({
       mutationFn: async () => {
@@ -37,6 +37,7 @@ const TaskCard = ({task}) => {
       <h1 className="font-bold text-xl">{title}</h1>
 
       <p className="mt-2">{description}</p>
+      <p className="mt-2">Task Added : {new Date(timeStamp).toLocaleDateString()}</p>
 
       <div className="flex justify-between items-center mt-3">
         <div>
